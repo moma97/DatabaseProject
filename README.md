@@ -3,6 +3,7 @@
 This project focuses on programming towards a database, using CRUD. 
 
 Functionality:
+
 Create:
 - Create new animals and connect these to already existing animalclass and specie
 - Add new animalclasses

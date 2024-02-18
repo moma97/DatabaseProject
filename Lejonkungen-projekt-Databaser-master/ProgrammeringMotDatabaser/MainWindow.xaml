@@ -1,0 +1,127 @@
+﻿<Window x:Class="ProgrammeringMotDatabaser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgrammeringMotDatabaser"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid Margin="0,0,0,-6" RenderTransformOrigin="0.496,0.508">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="159*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lstBox" Margin="599,197,609,459" Grid.ColumnSpan="2" MouseDoubleClick="lstBox_MouseDoubleClick" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <TextBlock x:Name="txtBlockWelcome" HorizontalAlignment="Left" Margin="605,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="77" Width="554" FontSize="18" FontWeight="Bold" TextAlignment="Center"/>
+        <Label x:Name="lblCreate" Content="Create" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblRead" Content="Read" HorizontalAlignment="Left" Margin="340,129,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblUpdate" Content="Update" HorizontalAlignment="Left" Margin="370,136,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="1"/>
+        <Label x:Name="lblDelete" Content="Delete" HorizontalAlignment="Left" Margin="602,654,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <GroupBox x:Name="gBoxCreateAnimalClass" Header="Create new animal class" Margin="46,120,735,795" FontWeight="Bold">
+            <StackPanel Margin="0, 10, 0, 10">
+                <Label Content="Class name" FontWeight="Normal"/>
+                <TextBox x:Name="txtinputclassname" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF111112" Margin="10, 0, 0, 0" FontWeight="Normal"/>
+                <Button x:Name="btncreateclass" Content="Create new class" Width="120" Click="btncreateclass_Click" Margin="-30, 10, 0, 0" FontWeight="Normal"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gBoxCreateAnimalSpecie" Header="Create new animal specie" Margin="46,302,734,488" FontWeight="Bold">
+            <StackPanel Margin="0, 10, 0, 10">
+                <Label Content="Animal specie name" FontWeight="Normal" />
+                <TextBox x:Name="txtinputspeciename" TextWrapping="Wrap" Width="120" BorderBrush="#FF0A0A0A" Margin="-40, 0, 0, 10" FontWeight="Normal"/>
+                <Label Content="Latin name" FontWeight="Normal"/>
+                <TextBox x:Name="txtinputlatinname" TextWrapping="Wrap" Width="120" BorderBrush="#FF0A0A0A" Margin="-40, 0, 0, 10" FontWeight="Normal"/>
+                <Label Content="Animal class" FontWeight="Normal" Height="27" Width="173"/>
+                <ComboBox x:Name="cboclass" Width="120" Margin="-40, 0, 0, 10" FontWeight="Normal"/>
+                <Button x:Name="btncreatespecie" Content="Create new specie" Width="120" Click="btncreatespecie_Click" Margin="-40, 20, 0, 10" FontWeight="Normal"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gBoxCreateAnimal" Header="Create new animal" Margin="50,658,735,155" FontWeight="Bold">
+            <StackPanel Margin="0, 10, 0, 10">
+                <Label Content="Character name" FontWeight="Normal"/>
+                <TextBox x:Name="txtinput" TextWrapping="Wrap" Width="120" BorderBrush="#FF111112" Margin="-40, 0, 0, 10" FontWeight="Normal"/>
+                <Label Content="Animal specie" FontWeight="Normal"/>
+                <ComboBox x:Name="cbospecie" Width="124" SelectionChanged="cbospecie_SelectionChanged" Margin="-40, 0, 0, 10" FontWeight="Normal" />
+                <Label x:Name="lblShowAnimalClassForSpecie" Content="" RenderTransformOrigin="0.3,-0.037" FontWeight="Normal">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-3.275"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="1.541"/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Button x:Name="btncreateanimal" Content="Create animal" Width="125" Click="btncreateanimal_Click" Margin="-40, 20, 0, 10" FontWeight="Normal"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Label x:Name="lblAnimalRegistry" Content="Animal registry" HorizontalAlignment="Left" Margin="601,167,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2" Width="710"/>
+        <Label Content="Select view of animal registry" HorizontalAlignment="Left" Margin="334,200,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <GroupBox x:Name="gBoxRadioBtnViews" Header="" Margin="338,228,374,716">
+            <StackPanel>
+                <RadioButton x:Name="rdbtnAllAnimals" Content="All animals" Checked="RadioButton_Checked" IsChecked="True" RenderTransformOrigin="0.039,0.537" Margin="0, 0, 0, 5"/>
+                <RadioButton x:Name="rdbtnAnimalsWithCharacterName" Content="Animals with character name" RenderTransformOrigin="0.039,0.537" Checked="RadioButton_Checked_1" Margin="0, 0, 0, 5"/>
+                <RadioButton x:Name="rdbtnNumberOfAnimalsInEachClass" Content="Number of animals in each class" RenderTransformOrigin="0.039,0.537" Checked="RadioButton_Checked_2" Margin="0, 0, 0, 5"/>
+                <RadioButton x:Name="rdbtnNumberOfAnimalsInEachSpecie" Content="Number of animals in each specie " RenderTransformOrigin="0.039,0.537" Checked="RadioButton_Checked_3" Margin="0, 0, 0, 5"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gBoxAllAnimalsInSpecificClass" Header="All Animals in a specifc animal class" Margin="334,362,378,615" FontWeight="Bold">
+            <StackPanel>
+                <Label Content="Select class" FontWeight="Normal" Width="70" Margin="-150, 10, 0, 0"/>
+                <ComboBox x:Name="cbolistofclasses" Width="120" SelectionChanged="cbolistofclasses_SelectionChanged" Margin="0, -20, -80, 0" FontWeight="Normal"/>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Select an animal to update" Margin="370,197,152,533" FontWeight="Bold" Grid.Column="1">
+            <StackPanel>
+                <TextBox x:Name="txtUpdateExplanation" TextWrapping="Wrap" Text="Search for animal by character name or use raido button to show animals in the list.&#xA;Double-click on the animal you wish to update.&#xA;Change properties below  " Width="258" FontWeight="Normal" Margin="0,10,150,0"/>
+                <Label x:Name="lblupdateanimalid" Content="Animal id:" FontWeight="Normal"/>
+                <Label Content="Character name: " FontWeight="Normal"/>
+                <TextBox x:Name="txtupdatecharacternameinput" TextWrapping="Wrap" Width="163" KeyDown="txtupdatecharacternameinput_KeyDown" Margin="0,-20,60,0" FontWeight="Normal"/>
+                <Label Content="Animal specie:" FontWeight="Normal"/>
+                <TextBox x:Name="txtupdateanimalspecie" TextWrapping="Wrap" Width="162" IsEnabled="False" Margin="0,-20,60,0" FontWeight="Normal"/>
+                <ComboBox x:Name="cboupdateanimalspecie" Width="147" SelectionChanged="cboupdateanimalspecie_SelectionChanged" Margin="0,-20,-260,0" FontWeight="Normal"/>
+                <Label Content="Latin name:" FontWeight="Normal"/>
+                <TextBox x:Name="txtupdatelatinname" TextWrapping="Wrap" Width="163" KeyDown="txtupdatelatinname_KeyDown" Margin="0,-20,60,0" FontWeight="Normal"/>
+                <Label Content="Animal class:" FontWeight="Normal" Margin="0,5,0,0"/>
+                <Label x:Name="lblupdateanimalclass" FontWeight="Normal" Margin="0,-25,60,0" Width="165"/>
+                <Button x:Name="btnupdateanimal" Content="Update Animal" Width="120" Click="btnupdateanimal_Click" FontWeight="Normal" Margin="0,10,100,0" IsEnabled="False"/>
+
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox x:Name="gBoxDeleteAnimal" Header="Select an animal to delete" Margin="602,690,12,124" FontWeight="Bold">
+            <StackPanel>
+                <TextBox x:Name="txtDeleteExplanation" TextWrapping="Wrap" Text="Search for animal by character name or use raido button to show animals in the list. Double-click on the animal you wish to delete. Execute delete with Delet Animal button. " Width="274" FontWeight="Normal" Margin="0,10,40,0"/>
+                <Label x:Name="lblDeleteAnimalid" Content="Animal id:" FontWeight="Normal"/>
+                <Label x:Name="lblCharacterNameDelete" Content="Character name: " FontWeight="Normal"/>
+                <Label x:Name="lblAnimalSpecieDelete" Content="Animal specie:" FontWeight="Normal"/>
+                <Button x:Name="btnDeleteAnimal" Content="Delete Animal" Width="120" FontWeight="Normal" Margin="0,10,-50,0" Click="btnDeleteAnimal_Click" IsEnabled="False"/>
+
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox x:Name="gBoxDeleteAnimalSpecie" Header="Delete animal specie" Margin="66,692,714,176" FontWeight="Bold" Grid.Column="1">
+            <StackPanel>
+                <ComboBox x:Name="cboDeleteAimalSpecie" FontWeight="Normal" Height="22" Width="147"  Margin="0,10,0,0"/>
+                <Button x:Name="btnDeleteAnimalSpecie" Content="Delete Animal Specie" Width="120" FontWeight="Normal"  Margin="0,20,0,0" Click="btnDeleteAnimalSpecie_Click" />
+
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox x:Name="gBoxDeleteAnimalClass" Header="Delete animal class" Margin="328,692,452,176" FontWeight="Bold" Grid.Column="1">
+            <StackPanel>
+                <ComboBox x:Name="cboDeleteAimalClass" FontWeight="Normal" Height="22" Width="147"  Margin="0,10,0,0"/>
+                <Button x:Name="btnDeleteAnimalClass" Content="Delete Animal Class" Width="120" FontWeight="Normal"  Margin="0,20,0,0" Click="btnDeleteAnimalClass_Click" />
+
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox Header="Search for animal by character name" Margin="745,110,873,878" FontWeight="Bold" Grid.ColumnSpan="2">
+            <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" FontWeight="Normal" Margin="63,0,18,0" TextChanged="txtCharacterName_TextChanged" Height="20" GotFocus="txtCharacterName_GotFocus"/>
+        </GroupBox>
+
+
+
+    </Grid>
+</Window>
